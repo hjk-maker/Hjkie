@@ -42,5 +42,6 @@ MIT License — You are free to use, modify, and distribute for any purpose.
 
 ## 📬 Contact
 
-- GitHub: [github.com/hjkinc/infinitegear](https://github.com/hjkinc/infinitegear)
-- Email: hjk@example.com
+- GitHub: [github.com/hjkmaker/hjkie](https://github.com/hjk-maker/hjkie)
+- Email: godmy5154@gmail.com
+website:https://hjk-maker.github.io/Hjkie/
