@@ -2,14 +2,17 @@
 
 **Created by Hjk Maker**
 
-HJK InfiniteGear is a theoretical recursive energy transformation and learning engine. It models a feedback-based logic loop where output energy powers future operations, allowing theoretical infinite operation based on dynamic parameters.
-
+HJK InfiniteGear is a theoretical recursive energy transformation and learning engine. It models a feedback-based logic loop where output energy powers future operations, allowing theoretical infinite operation based on dynamic parameters. 
+input 1                output 4
+➡️➡️(large gear to smallergear)➡️➡️
+⬆️                               ⬇️
+⬆️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️⬅️now in 2 round output became input and have infinity ♾️ power slowly as get more and more turns
 ---
 
 ## 🌐 Website Preview
 
 A fully responsive, futuristic-styled website is included in this project:  
-🔗 Open `index.html` in your browser to preview the InfiniteGear concept.
+🔗 Open `index.html` in your browser to preview the InfiniteGear concept or go on https://hjk-maker.github.io/Hjkie/
 
 ---
 
