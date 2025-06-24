@@ -3,489 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hjkie | Quantum Core</title>
+    <title>HJK Infinity Gear | Advanced Technological Systems</title>
     <style>
+        /* Modern CSS Reset */
         :root {
-            --quantum-blue: #0ff0fc;
-            --quantum-purple: #7a04eb;
-            --quantum-dark: #0a0a12;
-            --quantum-darker: #05050a;
-            --quantum-gray: #1a1a2e;
-            --quantum-light: #e6e6e6;
-            --git-orange: #f05033;
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
         }
-
-        body {
-            background-color: var(--quantum-darker);
-            color: var(--quantum-light);
-            font-family: 'IBM Plex Mono', 'Courier New', monospace;
-            line-height: 1.6;
+        
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
             overflow-x: hidden;
         }
-
-        .quantum-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .quantum-header {
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            padding: 2rem 0;
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(100, 255, 218, 0.2);
             position: relative;
         }
-
-        .quantum-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 25%;
-            width: 50%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--quantum-blue), transparent);
-        }
-
-        .quantum-title {
-            font-size: 4rem;
-            margin: 0;
-            background: linear-gradient(90deg, var(--quantum-blue), var(--quantum-purple));
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #64ffda, #3a7bd5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: quantum-pulse 8s infinite alternate;
-            letter-spacing: -3px;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
-
-        .quantum-subtitle {
-            color: var(--quantum-blue);
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+        
+        .logo::after {
+            content: "∞";
+            color: var(--accent);
+            font-size: 3rem;
+            vertical-align: middle;
+            margin-left: 0.3rem;
         }
-
-        .git-info {
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-            color: var(--quantum-light);
-            opacity: 0.8;
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
-
-        .git-info a {
-            color: var(--git-orange);
-            text-decoration: none;
-            transition: opacity 0.3s;
+        
+        /* Navigation */
+        nav {
+            background-color: var(--secondary);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .git-info a:hover {
-            opacity: 0.7;
-            text-decoration: underline;
-        }
-
-        .quantum-nav ul {
+        
+        nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 0;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
-
-        .quantum-link {
-            color: var(--quantum-light);
-            text-decoration: none;
+        
+        nav ul li {
+            margin: 0 1.8rem;
             position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
             padding: 0.5rem 0;
-            font-size: 1.1rem;
         }
-
-        .quantum-link:hover {
-            color: var(--quantum-blue);
+        
+        nav ul li a:hover {
+            color: var(--accent);
         }
-
-        .quantum-link::after {
+        
+        nav ul li a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--quantum-blue);
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent);
             transition: width 0.3s ease;
         }
-
-        .quantum-link:hover::after {
+        
+        nav ul li a:hover::after {
             width: 100%;
         }
-
-        .quantum-section {
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        section {
             margin-bottom: 4rem;
             padding: 2rem;
-            background-color: var(--quantum-dark);
+            background-color: var(--secondary);
             border-radius: 8px;
-            box-shadow: 0 0 20px rgba(10, 240, 252, 0.05);
-            border: 1px solid var(--quantum-gray);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
-
-        .quantum-section h2 {
-            margin-top: 0;
-            color: var(--quantum-blue);
-            border-bottom: 1px solid var(--quantum-gray);
-            padding-bottom: 0.5rem;
+        
+        section:hover {
+            transform: translateY(-5px);
         }
-
-        .quantum-grid {
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(23, 42, 69, 0.9));
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #64ffda, #3a7bd5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
-            gap: 5px;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
-
-        .particle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: var(--quantum-blue);
-            opacity: 0.7;
+        
+        .feature-card {
+            background-color: rgba(10, 25, 47, 0.5);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid rgba(100, 255, 218, 0.1);
             transition: all 0.3s ease;
         }
-
-        .quantum-card-container {
+        
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+        
+        .tech-specs {
+            margin-top: 2rem;
+        }
+        
+        .tech-specs ul {
+            list-style-position: inside;
+            columns: 2;
+        }
+        
+        .tech-specs li {
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .tech-specs li::marker {
+            color: var(--accent);
+        }
+        
+        /* Contact Section */
+        .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
-
-        .quantum-card {
-            background-color: var(--quantum-gray);
+        
+        .contact-item {
             padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--quantum-purple);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .quantum-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                transparent,
-                transparent,
-                transparent,
-                var(--quantum-blue),
-                transparent,
-                transparent,
-                transparent
-            );
-            transform: rotate(30deg);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-
-        .quantum-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(122, 4, 235, 0.3);
-            border-color: var(--quantum-blue);
-        }
-
-        .quantum-card:hover::before {
-            opacity: 0.3;
-            animation: shine 3s infinite;
-        }
-
-        .repo-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--git-orange);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .repo-link:hover {
-            text-decoration: underline;
-        }
-
-        .quantum-terminal {
-            background-color: var(--quantum-dark);
-            border: 1px solid var(--quantum-gray);
+            background-color: rgba(10, 25, 47, 0.5);
             border-radius: 6px;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            color: var(--quantum-blue);
-            height: 200px;
-            overflow-y: auto;
-            margin-top: 1rem;
+            border-left: 3px solid var(--accent);
         }
-
-        .terminal-line {
-            margin: 0.3rem 0;
-            white-space: pre-wrap;
+        
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
         }
-
-        .terminal-prompt {
-            color: var(--quantum-purple);
-        }
-
-        .quantum-footer {
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 3rem 0;
             text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-            border-top: 1px solid var(--quantum-gray);
-            color: var(--quantum-blue);
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
-
-        @keyframes quantum-pulse {
-            0% { opacity: 0.8; text-shadow: 0 0 10px rgba(10, 240, 252, 0.3); }
-            50% { opacity: 1; text-shadow: 0 0 20px rgba(122, 4, 235, 0.5); }
-            100% { opacity: 0.8; text-shadow: 0 0 10px rgba(10, 240, 252, 0.3); }
-        }
-
-        @keyframes shine {
-            0% { transform: rotate(30deg) translate(-10%, -10%); }
-            100% { transform: rotate(30deg) translate(10%, 10%); }
-        }
-
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .quantum-title {
-                font-size: 2.5rem;
+            .logo {
+                font-size: 2rem;
             }
             
-            .quantum-nav ul {
-                flex-direction: column;
-                gap: 1rem;
+            .logo::after {
+                font-size: 2.2rem;
             }
             
-            .quantum-card-container {
-                grid-template-columns: 1fr;
+            nav ul li {
+                margin: 0 1rem;
             }
             
-            .quantum-section {
+            .tech-specs ul {
+                columns: 1;
+            }
+            
+            section {
                 padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="quantum-container">
-        <header class="quantum-header">
-            <h1 class="quantum-title">Hjkie</h1>
-            <p class="quantum-subtitle">Quantum Core Implementation</p>
-            <div class="git-info">
-                GitHub: <a href="https://github.com/hjk-maker/Hjkie" target="_blank">hjk-maker/Hjkie</a> | 
-                Email: <a href="mailto:godmy5154@gmail.com">godmy5154@gmail.com</a>
+    <header>
+        <div class="logo">HJK INFINITY GEAR</div>
+        <div class="tagline">Next-Generation Technological Systems</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="hero">
+            <h2>Revolutionizing Technology</h2>
+            <p>HJK Infinity Gear develops cutting-edge technological systems that push the boundaries of performance and efficiency. Our proprietary gear systems power the future.</p>
+        </section>
+        
+        <section id="about">
+            <h2>About HJK Infinity Gear</h2>
+            <p>Founded on principles of innovation and excellence, HJK Infinity Gear specializes in advanced mechanical and digital systems integration. Our team of engineers and scientists work at the intersection of hardware and software to create solutions that redefine industry standards.</p>
+            <p>With over a decade of research and development, our Infinity Gear technology represents a quantum leap in system performance and energy efficiency.</p>
+        </section>
+        
+        <section id="products">
+            <h2>Our Product Line</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Infinity Core Drive</h3>
+                    <p>The heart of our technology, providing unmatched power efficiency and processing capabilities for industrial applications.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Quantum Gear Modules</h3>
+                    <p>Modular components that adapt to your system's needs, featuring self-optimizing performance characteristics.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Nexus Control Systems</h3>
+                    <p>Advanced control interfaces that provide seamless integration between mechanical and digital systems.</p>
+                </div>
             </div>
-        </header>
-
-        <nav class="quantum-nav">
-            <ul>
-                <li><a href="#about" class="quantum-link">About</a></li>
-                <li><a href="#projects" class="quantum-link">Projects</a></li>
-                <li><a href="#terminal" class="quantum-link">Terminal</a></li>
-            </ul>
-        </nav>
-
-        <main class="quantum-main">
-            <section id="about" class="quantum-section">
-                <h2>Quantum State</h2>
-                <p>Hjkie is a quantum-inspired core implementation focusing on minimalism and performance. This repository represents the superposition of multiple potential states collapsed into a single implementation.</p>
-                <div class="quantum-grid" id="particle-grid"></div>
-            </section>
-
-            <section id="projects" class="quantum-section">
-                <h2>GitHub Projects</h2>
-                <div class="quantum-card-container" id="card-container"></div>
-            </section>
-
-            <section id="terminal" class="quantum-section">
-                <h2>Quantum Terminal</h2>
-                <p>Interface with the core system:</p>
-                <div class="quantum-terminal" id="quantum-terminal"></div>
-            </section>
-        </main>
-
-        <footer class="quantum-footer">
-            <p>© <span id="year"></span> Hjkie Quantum Core | Repository: <a href="https://github.com/hjk-maker/Hjkie" target="_blank" style="color: var(--git-orange);">hjk-maker/Hjkie</a></p>
-        </footer>
+        </section>
+        
+        <section id="technology">
+            <h2>Technology Specifications</h2>
+            <p>The HJK Infinity Gear systems combine revolutionary mechanical designs with advanced AI-driven control algorithms, creating a synergy that delivers unprecedented performance metrics.</p>
+            
+            <div class="tech-specs">
+                <ul>
+                    <li>Patented Infinity Core technology</li>
+                    <li>Energy efficiency up to 98.7%</li>
+                    <li>Self-learning adaptive algorithms</li>
+                    <li>Modular, scalable architecture</li>
+                    <li>Real-time performance optimization</li>
+                    <li>Advanced predictive maintenance</li>
+                    <li>Seamless IoT integration</li>
+                    <li>Military-grade durability</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Our Team</h2>
+            <p>Reach out to learn more about how HJK Infinity Gear can transform your operations.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>General Inquiries</h3>
+                    <p>info@hjkgear.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Technical Support</h3>
+                    <p>support@hjkgear.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>Corporate Office</h3>
+                    <p>456 Innovation Parkway<br>Tech Valley, CA 94000</p>
+                </div>
+            </div>
+        </section>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set current year
-            document.getElementById('year').textContent = new Date().getFullYear();
-            
-            // Create quantum particles
-            const particleGrid = document.getElementById('particle-grid');
-            for (let i = 0; i < 200; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                
-                // Random properties
-                const size = Math.random() * 10 + 5;
-                const opacity = Math.random() * 0.5 + 0.3;
-                const hue = Math.random() * 60 + 180;
-                const delay = Math.random() * 5;
-                
-                Object.assign(particle.style, {
-                    width: `${size}px`,
-                    height: `${size}px`,
-                    opacity: opacity,
-                    backgroundColor: `hsl(${hue}, 100%, 50%)`,
-                    animation: `quantum-pulse ${Math.random() * 5 + 3}s infinite alternate ${delay}s`
-                });
-                
-                // Interactive particles
-                particle.addEventListener('mouseover', () => {
-                    particle.style.transform = 'scale(1.8)';
-                    particle.style.opacity = '1';
-                    particle.style.boxShadow = '0 0 15px currentColor';
-                });
-                
-                particle.addEventListener('mouseout', () => {
-                    particle.style.transform = 'scale(1)';
-                    particle.style.opacity = opacity;
-                    particle.style.boxShadow = 'none';
-                });
-                
-                particleGrid.appendChild(particle);
-            }
-            
-            // GitHub projects data
-            const projects = [
-                {
-                    title: "Hjkie Core",
-                    description: "Main quantum core implementation with minimal dependencies and maximum performance.",
-                    tags: ["Quantum", "Core", "C++"],
-                    repo: "hjk-maker/Hjkie"
-                },
-                {
-                    title: "Infinity Framework",
-                    description: "Framework for building quantum-inspired interfaces and applications.",
-                    tags: ["Framework", "JS", "CSS"],
-                    repo: "hjk-maker/Infinity"
-                },
-                {
-                    title: "Qubit Tools",
-                    description: "Collection of utilities for quantum computing simulations.",
-                    tags: ["Quantum", "Tools", "Python"],
-                    repo: "hjk-maker/QubitTools"
-                }
-            ];
-            
-            // Generate project cards
-            const cardContainer = document.getElementById('card-container');
-            projects.forEach(project => {
-                const card = document.createElement('div');
-                card.className = 'quantum-card';
-                
-                const title = document.createElement('h3');
-                title.textContent = project.title;
-                title.style.color = 'var(--quantum-blue)';
-                title.style.marginTop = '0';
-                
-                const desc = document.createElement('p');
-                desc.textContent = project.description;
-                desc.style.marginBottom = '1rem';
-                
-                const tags = document.createElement('div');
-                Object.assign(tags.style, {
-                    marginTop: '1rem',
-                    display: 'flex',
-                    gap: '0.5rem',
-                    flexWrap: 'wrap'
-                });
-                
-                project.tags.forEach(tag => {
-                    const tagElement = document.createElement('span');
-                    tagElement.textContent = tag;
-                    Object.assign(tagElement.style, {
-                        padding: '0.25rem 0.5rem',
-                        backgroundColor: 'var(--quantum-dark)',
-                        borderRadius: '4px',
-                        fontSize: '0.8rem',
-                        border: '1px solid var(--quantum-gray)'
-                    });
-                    tags.appendChild(tagElement);
-                });
-                
-                const repoLink = document.createElement('a');
-                repoLink.className = 'repo-link';
-                repoLink.href = `https://github.com/${project.repo}`;
-                repoLink.target = '_blank';
-                repoLink.textContent = `github.com/${project.repo}`;
-                
-                card.append(title, desc, tags, repoLink);
-                cardContainer.appendChild(card);
-            });
-            
-            // Quantum terminal effect
-            const terminal = document.getElementById('quantum-terminal');
-            const messages = [
-                "> git clone https://github.com/hjk-maker/Hjkie",
-                "Cloning into 'Hjkie'...",
-                "remote: Enumerating objects: 127, done.",
-                "remote: Counting objects: 100% (127/127), done.",
-                "remote: Compressing objects: 100% (85/85), done.",
-                "remote: Total 127 (delta 52), reused 102 (delta 38), pack-reused 0",
-                "Receiving objects: 100% (127/127), 1.45 MiB | 3.12 MiB/s, done.",
-                "Resolving deltas: 100% (52/52), done.",
-                "> cd Hjkie",
-                "> npm install",
-                "added 127 packages in 3.42s",
-                "> npm run quantum",
-                "Initializing quantum core...",
-                "Loading superposition states...",
-                "Entangling components...",
-                "Quantum system ready.",
-                "> Welcome to Hjkie Quantum Core"
-            ];
-            
-            let index = 0;
-            function typeMessage() {
-                if (index < messages.length) {
-                    const line = document.createElement('div');
-                    line.className = 'terminal-line';
-                    
-                    if (messages[index].startsWith(">")) {
-                        const prompt = document.createElement('span');
-                        prompt.className = 'terminal-prompt';
-                        prompt.textContent = '> ';
-                        line.appendChild(prompt);
-                        line.appendChild(document.createTextNode(messages[index].substring(2)));
-                    } else {
-                        line.textContent = messages[index];
-                    }
-                    
-                    terminal.appendChild(line);
-                    terminal.scrollTop = terminal.scrollHeight;
-                    index++;
-                    
-                    setTimeout(typeMessage, 300 + Math.random() * 500);
-                }
-            }
-            
-            typeMessage();
-            
-            // Smooth scrolling
-            document.querySelectorAll('.quantum-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    window.scrollTo({
-                        top: target.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
+    
+    <footer>
+    
+            <div class="copyright">
+                &copy; 2023 Hjkie. All rights reserved.
+            </div>
+        </div>
+    </footer>
 </body>
-          </html>
+                                            </html>
